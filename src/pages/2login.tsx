@@ -42,6 +42,10 @@ const LoginPage: Component = () => {
               <button
                 type="submit"
                 class="bg-pink-400 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-md w-full"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = "/dashboard";
+                }}
               >
                 Login
               </button>
@@ -66,7 +70,15 @@ const LoginPage: Component = () => {
 
           <div class="mt-2 text-sm">
             Don’t have an account?{" "}
-            <a href="#" class="text-blue-500">
+            <a
+              href="/register"
+              class="text-blue-500"
+              style={{ cursor: "pointer" }}
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "/register";
+              }}
+            >
               Create One
             </a>
           </div>

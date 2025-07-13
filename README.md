@@ -1,37 +1,19 @@
-## Usage
+Nama: Alfazri Maulana Hidayat Dari, Smk Telkom Purwokerto
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+Link Website: 
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+Link Figma: https://www.figma.com/design/wihXqpvCVYnKw9aOzYae6s/fttym?node-id=0-1&t=iomTwNnpqFPL5Cxx-1
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+DAILY REPORT :
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+pengenalan lingkungan kerja dan pengenalan bahasa pemrograman rust 23-06-2025
 
-## Available Scripts
+mencari ide aplikasi dan mulai mendesign di rumah karena wfh 24-06-2025
 
-In the project directory, you can run:
+masih melanjutkan design di office 25-06-2025
 
-### `npm run dev` or `npm start`
+sudah selesai dengan design pada tanggal 26-06-2025
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+mengerjakan front end nya dan mengirimkan profile link github untuk kolaborasi 26-06-2025
 
-The page will reload if you make edits.<br>
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
-
-## This project was created with the [Solid CLI](https://github.com/solidjs-community/solid-cli)
-    
+lalu pada tanggal 30 juni hingga 10 juli saya menyelesaikan front end nya dan merevisi sedikit pada bagian design dan sudah di hosting juga 30-06-2025 - 10-07-2025.

@@ -49,6 +49,10 @@ const RegisterPage: Component = () => {
               <button
                 type="submit"
                 class="bg-pink-400 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-md w-full"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = "/dashboard";
+                }}
               >
                 Register
               </button>
@@ -67,7 +71,15 @@ const RegisterPage: Component = () => {
 
           <div class="mt-2 text-sm">
             Have an account?{" "}
-            <a href="/login" class="text-blue-500">
+            <a
+              href="/login"
+              class="text-blue-500"
+              style={{ cursor: "pointer" }}
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "/login";
+              }}
+            >
               Sign In
             </a>
           </div>

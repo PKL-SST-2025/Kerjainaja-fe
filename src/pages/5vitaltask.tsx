@@ -150,7 +150,6 @@ const VitalTaskPage: Component = () => {
           <div class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full blur-xl"></div>
           <div class="absolute bottom-20 right-10 w-16 h-16 bg-white rounded-full blur-xl"></div>
         </div>
-
         <div class="space-y-8 relative z-10">
           {/* Enhanced Profile */}
           <div class="flex items-center gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
@@ -190,8 +189,12 @@ const VitalTaskPage: Component = () => {
               icon="📝"
               onClick={() => (window.location.href = "/mytask")}
             />
-            <NavItem label="Task Categories" icon="📂" />
-            <NavItem label="Analytics" icon="📈" />
+            <NavItem
+              label="Task Categories"
+              icon="📂"
+              onClick={() => (window.location.href = "/categories")}
+            />
+            {/* <NavItem label="Analytics" icon="📈" /> */} {/* BUTTON ANALYTICS DIHILANGKAN */}
             <NavItem
               label="Settings"
               icon="⚙️"
@@ -216,10 +219,14 @@ const VitalTaskPage: Component = () => {
         </div>
 
         {/* Enhanced Logout */}
-        <button class="relative z-10 flex items-center gap-3 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/20">
+        <button
+          onClick={() => (window.location.href = "/login")}
+          class="relative z-10 flex items-center gap-3 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/20"
+        >
           <span class="text-lg">🚪</span>
           <span class="font-medium">Logout</span>
         </button>
+        
       </aside>
 
       {/* ░░ Enhanced Main content ░░ */}

@@ -87,7 +87,6 @@ const ProfilePage: Component = () => {
     { label: "Vital Task", icon: "🎯" },
     { label: "My Task", icon: "📝" },
     { label: "Task Categories", icon: "📂" },
-    { label: "Analytics", icon: "📈" },
     { label: "Settings", icon: "⚙️" },
   ];
 
@@ -105,6 +104,10 @@ const ProfilePage: Component = () => {
     }
     if (label === "My Task") {
       window.location.href = "/mytask";
+      return;
+    }
+    if (label === "Task Categories") {
+      window.location.href = "/categories";
       return;
     }
     console.log(`Navigating to: ${label}`);
@@ -142,7 +145,6 @@ const ProfilePage: Component = () => {
           <div class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full blur-xl"></div>
           <div class="absolute bottom-20 right-10 w-16 h-16 bg-white rounded-full blur-xl"></div>
         </div>
-
         <div class="space-y-8 relative z-10">
           {/* Enhanced Profile */}
           <div class="flex items-center gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
@@ -199,7 +201,7 @@ const ProfilePage: Component = () => {
 
         {/* Enhanced Logout */}
         <button
-          onClick={() => console.log("Logging out...")}
+          onClick={() => (window.location.href = "/login")}
           class="relative z-10 flex items-center gap-3 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/20"
         >
           <span class="text-lg">🚪</span>

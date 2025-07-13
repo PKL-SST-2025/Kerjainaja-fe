@@ -234,7 +234,10 @@ const HomePage: Component = () => {
 
         {/* Enhanced CTA Button */}
         <div class="mt-10 mb-8">
-          <button class="group relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-4 px-12 rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
+          <button
+            class="group relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-4 px-12 rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-3xl"
+            onClick={() => (window.location.href = "/register")}
+          >
             <span class="relative z-10 flex items-center space-x-2">
               <span class="text-lg">🚀</span>
               <span class="text-lg">Get Started Now</span>

@@ -164,7 +164,7 @@ const MyTaskPage: Component = () => {
     { label: "Vital Task", icon: "🎯" },
     { label: "My Task", icon: "📝" },
     { label: "Task Categories", icon: "📂" },
-    { label: "Analytics", icon: "📈" },
+    // { label: "Analytics", icon: "📈" }, // BUTTON ANALYTICS DIHILANGKAN
     { label: "Settings", icon: "⚙️" },
   ];
 
@@ -185,6 +185,10 @@ const MyTaskPage: Component = () => {
     }
     if (label === "My Task") {
       window.location.href = "/mytask";
+      return;
+    }
+    if (label === "Task Categories") {
+      window.location.href = "/categories";
       return;
     }
     console.log(`Navigating to: ${label}`);
@@ -265,7 +269,7 @@ const MyTaskPage: Component = () => {
 
         {/* Enhanced Logout */}
         <button
-          onClick={() => console.log("Logging out...")}
+          onClick={() => (window.location.href = "/login")}
           class="relative z-10 flex items-center gap-3 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/20"
         >
           <span class="text-lg">🚪</span>
