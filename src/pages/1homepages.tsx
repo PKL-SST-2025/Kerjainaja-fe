@@ -1,5 +1,6 @@
 import type { Component } from "solid-js";
 import { createSignal, onMount } from "solid-js";
+import pattern from "../assets/pattern.png";
 
 const HomePage: Component = () => {
   const [isVisible, setIsVisible] = createSignal(false);
@@ -43,7 +44,7 @@ const HomePage: Component = () => {
         "background-image": `
           radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
           radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-          url('src/assets/pattern.png')
+          url{pattern}
         `,
         "background-color": "#FFC067",
       }}
