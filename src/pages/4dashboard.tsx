@@ -86,7 +86,7 @@ const dummyNotifications: Notification[] = [
     type: "warning",
     time: "2 hours ago",
     isRead: false,
-    icon: "⚠️"
+    icon: "⚠️",
   },
   {
     id: 2,
@@ -95,7 +95,7 @@ const dummyNotifications: Notification[] = [
     type: "error",
     time: "3 hours ago",
     isRead: false,
-    icon: "🚨"
+    icon: "🚨",
   },
   {
     id: 3,
@@ -104,7 +104,7 @@ const dummyNotifications: Notification[] = [
     type: "info",
     time: "5 hours ago",
     isRead: true,
-    icon: "📅"
+    icon: "📅",
   },
   {
     id: 4,
@@ -113,7 +113,7 @@ const dummyNotifications: Notification[] = [
     type: "warning",
     time: "1 day ago",
     isRead: true,
-    icon: "⏰"
+    icon: "⏰",
   },
   {
     id: 5,
@@ -122,8 +122,8 @@ const dummyNotifications: Notification[] = [
     type: "success",
     time: "2 days ago",
     isRead: true,
-    icon: "✅"
-  }
+    icon: "✅",
+  },
 ];
 
 const dummyCalendarEvents: CalendarEvent[] = [
@@ -133,7 +133,7 @@ const dummyCalendarEvents: CalendarEvent[] = [
     date: "2025-06-20",
     time: "10:00 AM",
     type: "meeting",
-    color: "bg-blue-500"
+    color: "bg-blue-500",
   },
   {
     id: 2,
@@ -141,7 +141,7 @@ const dummyCalendarEvents: CalendarEvent[] = [
     date: "2025-06-21",
     time: "6:00 PM",
     type: "deadline",
-    color: "bg-red-500"
+    color: "bg-red-500",
   },
   {
     id: 3,
@@ -149,7 +149,7 @@ const dummyCalendarEvents: CalendarEvent[] = [
     date: "2025-06-22",
     time: "2:00 PM",
     type: "meeting",
-    color: "bg-green-500"
+    color: "bg-green-500",
   },
   {
     id: 4,
@@ -157,8 +157,8 @@ const dummyCalendarEvents: CalendarEvent[] = [
     date: "2025-06-23",
     time: "6:00 PM",
     type: "event",
-    color: "bg-purple-500"
-  }
+    color: "bg-purple-500",
+  },
 ];
 
 /**
@@ -297,17 +297,17 @@ const CalendarWidget: Component<{
     const startingDayOfWeek = firstDay.getDay();
 
     const days = [];
-    
+
     // Add empty cells for days before the first day of the month
     for (let i = 0; i < startingDayOfWeek; i++) {
       days.push(null);
     }
-    
+
     // Add days of the month
     for (let day = 1; day <= daysInMonth; day++) {
       days.push(day);
     }
-    
+
     return days;
   };
 
@@ -336,21 +336,25 @@ const CalendarWidget: Component<{
   const hasEvent = (day: number | null) => {
     if (!day) return false;
     const current = currentDate();
-    const dateString = `${current.getFullYear()}-${String(current.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-    return props.events.some(event => event.date === dateString);
+    const dateString = `${current.getFullYear()}-${String(
+      current.getMonth() + 1
+    ).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    return props.events.some((event) => event.date === dateString);
   };
 
   const getEventForDay = (day: number | null) => {
     if (!day) return null;
     const current = currentDate();
-    const dateString = `${current.getFullYear()}-${String(current.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-    return props.events.find(event => event.date === dateString);
+    const dateString = `${current.getFullYear()}-${String(
+      current.getMonth() + 1
+    ).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    return props.events.find((event) => event.date === dateString);
   };
 
-  const navigateMonth = (direction: 'prev' | 'next') => {
+  const navigateMonth = (direction: "prev" | "next") => {
     const current = currentDate();
     const newDate = new Date(current);
-    if (direction === 'prev') {
+    if (direction === "prev") {
       newDate.setMonth(current.getMonth() - 1);
     } else {
       newDate.setMonth(current.getMonth() + 1);
@@ -359,16 +363,28 @@ const CalendarWidget: Component<{
   };
 
   const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
 
   const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   const days = getDaysInMonth(currentDate());
-  const todayEvents = props.events.filter(event => {
+  const todayEvents = props.events.filter((event) => {
     const today = new Date();
-    const todayString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const todayString = `${today.getFullYear()}-${String(
+      today.getMonth() + 1
+    ).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
     return event.date === todayString;
   });
 
@@ -381,13 +397,13 @@ const CalendarWidget: Component<{
         </h3>
         <div class="flex gap-2">
           <button
-            onClick={() => navigateMonth('prev')}
+            onClick={() => navigateMonth("prev")}
             class="p-2 hover:bg-gray-100 rounded-lg transition-colors"
           >
             <span class="text-gray-600">←</span>
           </button>
           <button
-            onClick={() => navigateMonth('next')}
+            onClick={() => navigateMonth("next")}
             class="p-2 hover:bg-gray-100 rounded-lg transition-colors"
           >
             <span class="text-gray-600">→</span>
@@ -457,7 +473,9 @@ const CalendarWidget: Component<{
                 onClick={() => props.onEventClick(event)}
               >
                 <div class="flex items-center justify-between">
-                  <h5 class="font-medium text-sm text-gray-800">{event.title}</h5>
+                  <h5 class="font-medium text-sm text-gray-800">
+                    {event.title}
+                  </h5>
                   <span class="text-xs text-gray-500">{event.time}</span>
                 </div>
               </div>
@@ -531,14 +549,14 @@ const DashboardPage: Component = () => {
 
   const toDoTasks = dummyTasks.filter((t) => t.status !== "completed");
   const completedTasks = dummyTasks.filter((t) => t.status === "completed");
-  const unreadNotifications = () => notifications().filter(n => !n.isRead);
+  const unreadNotifications = () => notifications().filter((n) => !n.isRead);
 
   // Navigation items configuration
   const navItems = [
     { label: "Dashboard", icon: "📊" },
     { label: "Vital Task", icon: "🎯" },
     { label: "My Task", icon: "📝" },
-    { label: "Task Categories", icon: "📂", href: "/taskcate" }, // arahkan ke /taskcate
+    { label: "Task Categories", icon: "📂", href: "/categories" }, // arahkan ke /taskcate
     { label: "Settings", icon: "⚙️" },
   ];
 
@@ -575,8 +593,8 @@ const DashboardPage: Component = () => {
   };
 
   const handleMarkAsRead = (id: number) => {
-    setNotifications(prev => 
-      prev.map(n => n.id === id ? { ...n, isRead: true } : n)
+    setNotifications((prev) =>
+      prev.map((n) => (n.id === id ? { ...n, isRead: true } : n))
     );
   };
 
@@ -656,7 +674,7 @@ const DashboardPage: Component = () => {
 
         {/* Enhanced Logout */}
         <button
-          onClick={() => console.log("Logging out...")}
+          onClick={() => console.log("/login")}
           class="relative z-10 flex items-center gap-3 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/20"
         >
           <span class="text-lg">🚪</span>
@@ -746,10 +764,7 @@ const DashboardPage: Component = () => {
                 ✕
               </button>
             </div>
-            <CalendarWidget
-              events={events()}
-              onEventClick={handleEventClick}
-            />
+            <CalendarWidget events={events()} onEventClick={handleEventClick} />
           </div>
         )}
 
@@ -769,7 +784,7 @@ const DashboardPage: Component = () => {
                 To-Do Tasks
               </h2>
               <button
-                onClick={() => window.location.href = "/addtask"}
+                onClick={() => (window.location.href = "/addtask")}
                 class="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-2xl font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2"
               >
                 <span>➕</span>
@@ -780,17 +795,17 @@ const DashboardPage: Component = () => {
             <div class="space-y-4 max-h-[65vh] overflow-y-auto pr-2 custom-scrollbar">
               <For each={toDoTasks}>
                 {(task, index) => (
-                  <div
-                    class="group border border-gray-200 rounded-2xl p-5 flex gap-4 bg-gradient-to-r from-white/60 to-white/80 hover:from-white/80 hover:to-white/100 transition-all duration-300 hover:shadow-lg hover:border-orange-200 transform hover:scale-105"
-                  >
+                  <div class="group border border-gray-200 rounded-2xl p-5 flex gap-4 bg-gradient-to-r from-white/60 to-white/80 hover:from-white/80 hover:to-white/100 transition-all duration-300 hover:shadow-lg hover:border-orange-200 transform hover:scale-105">
                     <div class="flex flex-col items-center gap-2">
-                      <div class={`w-4 h-4 rounded-full ${
-                        task.status === "not_started"
-                          ? "bg-red-500"
-                          : task.status === "in_progress"
-                          ? "bg-blue-500"
-                          : "bg-green-500"
-                      }`}></div>
+                      <div
+                        class={`w-4 h-4 rounded-full ${
+                          task.status === "not_started"
+                            ? "bg-red-500"
+                            : task.status === "in_progress"
+                            ? "bg-blue-500"
+                            : "bg-green-500"
+                        }`}
+                      ></div>
                       <span class="text-xl">{statusIcon(task.status)}</span>
                     </div>
                     <div class="flex-1">
@@ -801,10 +816,18 @@ const DashboardPage: Component = () => {
                         {task.description}
                       </p>
                       <div class="flex items-center gap-2 mt-2">
-                        <span class={`text-xs px-2 py-1 rounded-full ${priorityColor(task.priority)}`}>
+                        <span
+                          class={`text-xs px-2 py-1 rounded-full ${priorityColor(
+                            task.priority
+                          )}`}
+                        >
                           {priorityIcon(task.priority)} {task.priority}
                         </span>
-                        <span class={`text-xs px-2 py-1 rounded-full ${statusColor(task.status)}`}>
+                        <span
+                          class={`text-xs px-2 py-1 rounded-full ${statusColor(
+                            task.status
+                          )}`}
+                        >
                           {task.status.replace("_", " ")}
                         </span>
                       </div>
@@ -824,9 +847,7 @@ const DashboardPage: Component = () => {
             <div class="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar">
               <For each={completedTasks}>
                 {(task) => (
-                  <div
-                    class="border border-gray-200 rounded-2xl p-5 flex gap-4 bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 transition-all duration-300 hover:shadow-lg hover:border-green-200"
-                  >
+                  <div class="border border-gray-200 rounded-2xl p-5 flex gap-4 bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 transition-all duration-300 hover:shadow-lg hover:border-green-200">
                     <div class="flex flex-col items-center gap-2">
                       <div class="w-4 h-4 rounded-full bg-green-500"></div>
                       <span class="text-xl">{statusIcon(task.status)}</span>
@@ -839,10 +860,18 @@ const DashboardPage: Component = () => {
                         {task.description}
                       </p>
                       <div class="flex items-center gap-2 mt-2">
-                        <span class={`text-xs px-2 py-1 rounded-full ${priorityColor(task.priority)}`}>
+                        <span
+                          class={`text-xs px-2 py-1 rounded-full ${priorityColor(
+                            task.priority
+                          )}`}
+                        >
                           {priorityIcon(task.priority)} {task.priority}
                         </span>
-                        <span class={`text-xs px-2 py-1 rounded-full ${statusColor(task.status)}`}>
+                        <span
+                          class={`text-xs px-2 py-1 rounded-full ${statusColor(
+                            task.status
+                          )}`}
+                        >
                           {task.status.replace("_", " ")}
                         </span>
                       </div>

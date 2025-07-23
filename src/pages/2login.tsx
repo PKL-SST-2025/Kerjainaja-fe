@@ -1,4 +1,5 @@
 import type { Component } from "solid-js";
+import orglogin from "../assets/oranglogin.png";
 
 const LoginPage: Component = () => {
   return (
@@ -13,7 +14,7 @@ const LoginPage: Component = () => {
         {/* Left Side Image */}
         <div class="hidden md:flex items-center justify-center w-1/2">
           <img
-            src="src/assets/oranglogin.png"
+            src={orglogin}
             alt="Login Illustration"
             class="w-full max-w-sm"
           />
